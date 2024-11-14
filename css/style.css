@@ -1,0 +1,190 @@
+/* main variables */
+:root{
+    --main-color: #e65f78;
+    --main-transition: 0.5s
+}
+/* global rules */
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Montserrat", sans-serif;
+}
+body {
+    font-family: "Nunito Sans", sans-serif;
+    /* overflow-x: hidden; */
+}
+img {
+    width: 100%;
+    display: block;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+/* my frame work */
+.main-color {
+    color: var(--main-color);
+}
+.main-bg {
+    background-color: var(--main-color);
+}
+.main-section-bg {
+    background-color: #F1F1F1;
+}
+.main-title {
+    max-width: 500px;
+    margin: auto;
+}
+/* navbar */
+.myNavbar .navbar {
+    background-color: black;
+}
+.myNavbar .navbar .navbar-brand {
+    font-size: 2rem;
+}
+.myNavbar .navbar .nav-item .nav-link {
+    position: relative;
+}
+.myNavbar .navbar .nav-item .nav-link:hover,
+.myNavbar .navbar .nav-item .nav-link.active {
+    color: var(--main-color) ;
+}
+@media screen and (min-width: 992px) {
+    .myNavbar .navbar .nav-item .nav-link:not(.dropdown-toogle)::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: var(--bs-navbar-nav-link-padding-x);
+        height: 3px;
+        bottom: 0;
+        background-color: var(--main-color);
+        transition: var(--main-transition) width;
+    }
+    .myNavbar .navbar .nav-item .nav-link.active::before,
+    .myNavbar .navbar .nav-item .nav-link:hover::before {
+        width: calc( 100% - var(--bs-navbar-nav-link-padding-x) *2);
+    }
+}
+.myNavbar .navbar .nav-item .nav-link:focus {
+    color: var(--main-color);
+}
+.myNavbar .navbar .nav-item  .deep-dropdown .dropdown-menu {
+    display: block;
+    transform: translate(150%, -30%);
+    opacity: 0;
+    transition: var(--main-transition) opacity, var(--main-transition) transform;
+}
+.myNavbar .navbar .nav-item  .deep-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translate(100%, -30%);
+}
+/* aside */
+aside {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    top: 30%;
+}
+/* home */
+#home {
+    background-image: linear-gradient(rgba(0,0,0,0.6) 0 100%), url("../images/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#home .content {
+    text-align: center;
+    color: #fff;
+    max-width: 700px;
+}
+#home .content span {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+#home .content h2 {
+    position: relative;
+    text-align: start;
+    position: relative;
+    left: 15%;
+    width: fit-content;
+}
+#home .content h2 span,
+#home .content h2 {
+    font-size: clamp(2.0625rem,10vw,4.0625rem);
+    font-weight: 500;
+}
+#home .content p {
+    color: #ffffff80;
+}
+/* about */
+#about .text-content .social-list li a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    align-content: center;
+    transition: var(--main-transition) border-color, var(--main-transition) color;
+}
+#about .text-content .social-list li a:hover {
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+/* client */
+#client .caro-card {
+    max-width: 500px;
+    margin: auto;
+}
+#client .caro-card .caro-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+}
+#client .carousel-indicators button {
+    background-color: var(--main-color);
+    padding: .0625rem 0;
+}
+/* portfolio */
+#portfolio .filter-links button.active {
+    background-color: var(--main-color);
+    color: #fff;
+}
+#portfolio .image-item  {
+    position: relative;
+    overflow: hidden;
+}
+#portfolio .image-item img {
+    transition: 0.3s scale;
+}
+#portfolio .image-item:hover img {
+    scale: 1.5;
+}
+#portfolio .image-item .layer {
+    position: absolute;
+    inset: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5625rem;
+    text-align: center;
+    align-content: center;
+    overflow: hidden;
+    transition: 0.3s background-color;
+}
+#portfolio .image-item .layer:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+#portfolio .image-item .layer :is(h3, p) {
+    transform: translateY(500%);
+    transition: 0.3s transform;
+}
+#portfolio .image-item .layer:hover :is(h3, p) {
+    transform: translateY(0);
+}
+/* contact */
+#contact form .form-btn:hover {
+    background-color: #e13454;
+}
